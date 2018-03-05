@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zll.dijiag.dao.UserMapper">
+	<select id="pFindUser" parameterType="java.util.Map" resultType="com.zll.dijiag.model.User">
+		select * from dg_user where phone=#{phone}
+	</select>
+	<insert id="insertUser" parameterType="java.util.Map">
+		insert into dg_user(user_pwd,phone,share_token,address,imei,type)
+		value(#{password},#{phone},#{device_token},#{address},#{imei},#{type})
+	</insert>
+</mapper>

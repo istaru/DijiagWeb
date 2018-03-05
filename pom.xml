@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zll.dijiag</groupId>
+  <artifactId>dijiag</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <!-- Springboot的jar -->
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.8.RELEASE</version>
+  </parent>
+  
+  <properties>
+    <java.version>1.8</java.version>
+    <sources.version>1.8</sources.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <fastjson.version>1.2.40</fastjson.version>
+    <mybatisplus-spring-boot-starter.version>1.0.4</mybatisplus-spring-boot-starter.version>
+    <mybatisplus.version>2.1-gamma</mybatisplus.version>
+    <druid.version>1.1.5</druid.version>
+    <java-jwt.version>3.2.0</java-jwt.version>
+    <shiro-spring.version>1.3.2</shiro-spring.version>
+    <commons-lang3.version>3.6</commons-lang3.version>
+    <hutool.version>3.2.0</hutool.version>
+  </properties>
+  
+  <modules>
+  	<module>dijiag-util</module>
+  	<module>dijiag-model</module>
+  	<module>dijiag-dao</module>
+  	<module>dijiag-service</module>
+  	<module>dijiag-webapi</module>
+  </modules>
+</project>

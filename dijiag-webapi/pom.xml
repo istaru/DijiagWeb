@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zll.dijiag</groupId>
+    <artifactId>dijiag</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>dijiag-webapi</artifactId>
+  <packaging>jar</packaging>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.zll.dijiag</groupId>
+  		<artifactId>dijiag-service</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.zll.dijiag</groupId>
+  		<artifactId>dijiag-dao</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.zll.dijiag</groupId>
+  		<artifactId>dijiag-model</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.zll.dijiag</groupId>
+  		<artifactId>dijiag-util</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<!-- spring的jar开始 -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-web</artifactId>
+  		<!-- 1.剔除tomcat -->
+  		<exclusions> 
+        	<exclusion>
+            	<groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+            </exclusion>
+        </exclusions>
+  	</dependency>
+  	<!-- 2.使用小红帽启动项目 -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-undertow</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <!-- spring的jar结束 -->
+    
+    <!-- mybatis的jar开始 -->
+    <dependency>
+		<groupId>com.baomidou</groupId>
+		<artifactId>mybatisplus-spring-boot-starter</artifactId>
+		<version>${mybatisplus-spring-boot-starter.version}</version>
+	</dependency>
+	<!-- mybatis的jar结束 -->
+	
+	<!-- 自动生产model文件jar开始 -->
+	<dependency>
+	    <groupId>org.apache.velocity</groupId>
+	    <artifactId>velocity</artifactId>
+	    <version>1.7</version>
+	</dependency>
+	<!-- 自动生产model文件jar结束 -->
+  </dependencies>
+  
+  <build>
+  	<finalName>dijiag-webapi</finalName>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.springframework.boot</groupId>
+       		<artifactId>spring-boot-maven-plugin</artifactId>
+       		<configuration>
+       			<fork>true</fork>
+        		<mainClass>com.zll.dijiag.Application</mainClass>
+        		<layout>ZIP</layout>
+        	</configuration>
+        	<executions>
+        		<execution>
+        			<goals>
+        				<goal>repackage</goal>
+        			</goals>
+        		</execution>
+        	</executions>
+  		</plugin>
+    </plugins>
+  </build>
+</project>
