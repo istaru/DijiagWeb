@@ -69,6 +69,7 @@ public class SmsServiceImpl extends ServiceImpl<SmsMapper, Sms> implements ISmsS
                             //发送短信
                             if (SmsUtil.send(map.get("sms_appkey").toString(), map.get("zhuce_url").toString(), map.get("zhuce_tpl_id").toString(), map.get("zhuce_tpl_value").toString(), type, phone, sms.getCode(), 5) ) {
                                 response.setCode(ResponseCode.CODE_SUCCESS);
+                                response.setMsg("验证码发送成功");
                             } else {
                                 TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
                             }
